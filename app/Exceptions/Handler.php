@@ -40,5 +40,11 @@ class Handler extends ExceptionHandler
                 'message' => $e->getMessage()
             ], 404);
         });
+
+        $this->renderable(function (UnauthorizedHttpException $e, $request) {
+            return response()->json([
+                'message' => $e->getMessage()
+            ], 401);
+        });
     }
 }
