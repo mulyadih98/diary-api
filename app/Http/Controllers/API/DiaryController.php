@@ -73,7 +73,7 @@ class DiaryController extends Controller
             "message" => "diary updated successfully",
             "data" => $diary
         ]);
-    }
+    } 
 
     /**
      * Remove the specified resource from storage.
