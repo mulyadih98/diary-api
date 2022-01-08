@@ -29,7 +29,7 @@ class DiaryServices {
     public function add(array $diary):Diary{
         $diarySave = [
             "title" => $diary['title'],
-            "value" => $diary['value'],
+            "value" => nl2br($diary['value']),
             "user_id" => auth()->user()->id
         ];
 

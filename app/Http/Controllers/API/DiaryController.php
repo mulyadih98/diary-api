@@ -66,7 +66,7 @@ class DiaryController extends Controller
     {
         $diary = $diaryServices->update($id,[
             "title" => $request->title,
-            "value" => $request->value
+            "value" => nl2br($request->value)
         ]);
 
         return response()->json([
