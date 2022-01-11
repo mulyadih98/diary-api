@@ -11,8 +11,8 @@ class DiaryServices {
         
         if(!$diary){
             throw new NotFoundHttpException('Diary Not Found');
-        }
-
+        } 
+        $diary->value = str_ireplace('<br>','\r\n',$diary->value);
         return $diary;
     }
 
@@ -29,7 +29,7 @@ class DiaryServices {
     public function add(array $diary):Diary{
         $diarySave = [
             "title" => $diary['title'],
-            "value" => nl2br($diary['value']),
+            "value" => $diary['value'],
             "user_id" => auth()->user()->id
         ];
 
