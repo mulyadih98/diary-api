@@ -12,7 +12,11 @@ class DiaryServices {
         if(!$diary){
             throw new NotFoundHttpException('Diary Not Found');
         } 
-        $diary->value = str_ireplace('<br>','\r\n',$diary->value);
+        $diary->value = str_replace(array(
+            '<br>',
+            '<br/>',
+            '<br />',
+        ), "\n", $diary->value);
         return $diary;
     }
 
